@@ -10,7 +10,7 @@ const useStyles = {
         left:'0px',
         width:'320px',
         height:'100%',
-        background:'black'
+        background:'lightBlue'
     }
 }
 
