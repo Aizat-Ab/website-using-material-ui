@@ -1,28 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core';
 
-
-// const useForm = (initialValues) => {
-    
-//     const [values, setValues] = React.useState(initialValues);
-
-//     const hadleInputChange = e => {
-//         const {name, value} = e.target;
-//         setValues({
-//             ...values,
-//             [name]: value
-//         })
-//     }
-
-//     return {
-//         values,
-//         setValues,
-//         hadleInputChange
-//     }
-// }
-
-// export default useForm;
-
 export function useForm(initialValues) {
     const [values, setValues] = React.useState(initialValues);
 
@@ -33,13 +11,18 @@ export function useForm(initialValues) {
             [name]: value
         })
     }
-
     return {
         values,
         setValues,
         hadleInputChange
     }
 }
+
+
+
+
+
+
 
 const useStyles = makeStyles(theme =>({
     root:{
@@ -53,9 +36,8 @@ const useStyles = makeStyles(theme =>({
 export function Form(props) {
     const classes = useStyles();
     return (
-        <form className={classes.root}>
+        <form className={classes.root} autoComplete='off'>
             {props.children}
         </form>
     ) 
-} 
-
+}
