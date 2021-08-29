@@ -1,26 +1,28 @@
+import React from 'react'
 import { FormControl, FormControlLabel, Checkbox as MuiCheckbox } from '@material-ui/core';
-import React from 'react';
 
-const Checkbox = ({name, label,value, onChange}) => {
+export default function Checkbox(props) {
 
-    const convertToDefEventPara = (name, value) =>({
-        target:{
+    const { name, label, value, onChange } = props;
+
+
+    const convertToDefEventPara = (name, value) => ({
+        target: {
             name, value
         }
     })
 
     return (
         <FormControl>
-            <FormControlLabel label={label}
-            control={<MuiCheckbox
-                name={name}
-                color='primary'
-                checked={value}
-                onChange={e => onChange(convertToDefEventPara(name, e.target.checked))}
-            />}>
-            </FormControlLabel>
+            <FormControlLabel
+                control={<MuiCheckbox
+                    name={name}
+                    color="primary"
+                    checked={value}
+                    onChange={e => onChange(convertToDefEventPara(name, e.target.checked))}
+                />}
+                label={label}
+            />
         </FormControl>
     )
 }
-
-export default Checkbox
